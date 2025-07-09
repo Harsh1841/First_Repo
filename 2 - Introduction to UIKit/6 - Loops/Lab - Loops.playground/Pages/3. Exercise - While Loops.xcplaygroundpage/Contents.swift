@@ -5,6 +5,13 @@ import Foundation
  Create a while loop that simulates rolling a 6-sided dice repeatedly until a 1 is rolled. After each roll, print the value. (Hint: use `Int.random(in: 1...6)` to generate a random number between 1 and 6).
  */
 var roll = 0
+var num = 0
+
+while num != 1 {
+    print(num)
+    num = Int.random(in: 1...6)
+}
+
 
 
 /*:
