@@ -34,7 +34,7 @@ struct Workout
 //:  Try to initialize two instances of a `Workout` object. Unwrap each of them and print its properties. One of them should not be initialized because the start and end times are too close together. The other should successfully initialize a `Workout` object.
 var workout1 = Workout(startTime: 10000, endTime: 10010)
 if let unwrappedWorkout1 = workout1
-{
+{ 
     print(unwrappedWorkout1)
 }
 

@@ -6,8 +6,25 @@
  Below is a `User` struct and three `User` instances. These will be used throughout the exercises below to simulate competition in the fitness tracking app.
  */
 struct User {
-    var name: String
-    var stepsToday: Int
+    var name: String?
+    var stepsToday: Int?
+    
+//    init(name: String, stepsToday: Int) {
+//        self.name = name
+//        self.stepsToday = stepsToday
+//    }
+    init?(name :String?, stepsToday : Int?)
+    {
+        if name == nil || stepsToday == nil
+        {
+            return nil
+        }
+        else{
+            self.name = name
+            self.stepsToday = stepsToday
+        }
+    }
+    
 }
 
 let stepMaster = User(name: "StepMaster", stepsToday: 8394)
@@ -24,14 +41,17 @@ func getWinner(competitors: [User]) -> User? {
     var topCompetitor: User?
 
     for competitor in competitors {
-        if let topCompetitor = topCompetitor {
-            if competitor.stepsToday > topCompetitor.stepsToday {
+        if var topCompetitor = topCompetitor {
+            var topCompetitor : User = topCompetitor
+            if let competitorSteps = competitor.stepsToday, let topCompititorSteps = topCompetitor.stepsToday, competitorSteps > topCompititorSteps {
                 topCompetitor = competitor
             }
         } else {
             topCompetitor = competitor
         }
     }
+    
+    
     return topCompetitor
 }
 

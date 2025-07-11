@@ -6,20 +6,27 @@
 struct Computer
 {
     var ram :Int?
-    var yearManufactured:Int?
+    var yearManufactured:Int
     
-    init?(ram : Int?, yearManufactured : Int?)
+    init?(ram : Int?, yearManufactured : Int)
     {
-        if let ram = ram , let yearManufactured = yearManufactured{
+        if let ram = ram
+        {
+            
             if ram > 0 || ( yearManufactured > 1970 && yearManufactured < 2020 )
             {
                 self.ram = ram
                 self.yearManufactured = yearManufactured
             }
+            else{
+                return nil
+            }
+            
         }
         else{
             return nil
         }
+        
     }
     
 }
@@ -27,11 +34,12 @@ struct Computer
 //:  Create two instances of `Computer?` using the failable initializer. One instance should use values that will have a value within the optional, and the other should result in `nil`. Use if-let syntax to unwrap each of the `Computer?` objects and print the `ram` and `yearManufactured` if the optional contains a value.
 var comp1  = Computer(ram: 0, yearManufactured: 2019)
 var comp2 = Computer(ram: nil, yearManufactured: 2019)
-if let comp1 = comp1 {
-    print("Ram: \(comp1.ram!) Year: \(comp1.yearManufactured!)")
+
+if let comp3 = comp1 {
+    print("Ram: \(comp3) Year: \(comp3.yearManufactured)")
 }
 if let comp2 = comp2 {
-    print("Ram: \(comp2.ram!) Year: \(comp2.yearManufactured!)")
+    print("Ram: \(comp2.ram!) Year: \(comp2.yearManufactured)")
 }
 /*:
 [Previous](@previous)  |  page 5 of 6  |  [Next: App Exercise - Workout or Nil](@next)
